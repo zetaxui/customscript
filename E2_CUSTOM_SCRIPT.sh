@@ -31,7 +31,7 @@ echo "======================================"
 echo "Installing plugins"
 wget -O e2m3u2bouquet.py "https://raw.githubusercontent.com/Pad2k22/E2_CUSTOM_SCRIPT/main/e2m3u2bouquet.py" &> /dev/null 2>&1
 chmod 755 e2m3u2bouquet.py
-./e2m3u2bouquet.py -m "http://PROVIDER_URL/get.php?username=USERNAME&password=PASSWORD&type=m3u_plus&output=ts&PARAMS" -e "http://PROVIDER_URL/xmltv.php?username=USERNAME&password=PASSWORD" -M &> /dev/null 2>&1
+./e2m3u2bouquet.py -m "http://PROVIDER_URL/get.php?username=USERNAME&password=PASSWORD&type=m3u_plus&output=mpegts&PARAMS" -e "http://PROVIDER_URL/xmltv.php?username=USERNAME&password=PASSWORD" -M &> /dev/null 2>&1
 echo $LINE
 echo $LINE
 echo "======================================"
@@ -57,7 +57,7 @@ echo "Download addon for automatic list update every day at 06:00 and 18:00"
 sleep 5
 opkg install busybox-cron &> /dev/null 2>&1
 crontab -r 2>/dev/null
-(crontab -l 2>/dev/null; echo '0 6,18 * * * /etc/enigma2/e2m3u2bouquet/e2m3u2bouquet.py -m "http://PROVIDER_URL/get.php?username=USERNAME&password=PASSWORD&type=m3u_plus&output=ts" -e "http://PROVIDER_URL/xmltv.php?username=USERNAME&password=PASSWORD" -M') | crontab -
+(crontab -l 2>/dev/null; echo '0 6,18 * * * /etc/enigma2/e2m3u2bouquet/e2m3u2bouquet.py -m "http://PROVIDER_URL/get.php?username=USERNAME&password=PASSWORD&type=m3u_plus&output=mpegts" -e "http://PROVIDER_URL/xmltv.php?username=USERNAME&password=PASSWORD" -M') | crontab -
 echo $LINE
 echo $LINE
 echo "======================================"
